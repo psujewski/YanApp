@@ -1,0 +1,18 @@
+{
+  "app_name": {
+    "message": "YanApp",
+    "description": "Nazwa wtyczki"
+  },
+  "app_description": {
+    "message": "Yet Another Note Application",
+    "description": "Opis wtyczki"
+  },
+  "default_title": {
+    "message": "Notatki",
+    "description": "Domyślna nazwa przycisku na pasku wtyczek"
+  },
+  "hello": {
+    "message": "Ahoj Przygodo!",
+    "description": "Inaczej"
+  }
+}

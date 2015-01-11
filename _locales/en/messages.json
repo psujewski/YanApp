@@ -1,0 +1,18 @@
+{
+  "app_name": {
+    "message": "YanApp",
+    "description": "Name of the extension"
+  },
+  "app_description": {
+    "message": "Yet Another Note Application that synchronize with dropbox",
+    "description": "Description of the extension"
+  },
+  "default_title": {
+    "message": "Notes",
+    "description": "Default name for the icon at extensions bar"
+  },
+  "hello": {
+    "message": "Hello World",
+    "description": "Obvious"
+  }
+}
