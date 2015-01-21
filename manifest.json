@@ -3,7 +3,8 @@
   "name": "__MSG_app_name__",
   "description": "__MSG_app_description__",
   "version": "0.0.1",
-  "author":"lradzikowski",
+  "author": "lradzikowski",
+  "homepage_url": "https://github.com/psujewski",
   "default_locale": "en",
   "icons": {
     "128": "gfx/pencil-128.png"
@@ -12,5 +13,19 @@
     "default_icon": "gfx/pencil-128.png",
     "default_title": "__MSG_default_title__",
     "default_popup": "popup.html"
-  }
+  },
+  "background": {
+    "page": "background.html",
+    "persistent": false
+  },
+  "permissions":[
+    "tabs",
+    "storage",
+    "identity",
+    "contextMenus",
+    "https://www.dropbox.com/*",
+    "https://api.dropbox.com/*",
+    "https://api-content.dropbox.com/*"
+  ],
+  "web_accessible_resources": ["oauth-receiver.html"]
 }

@@ -14,5 +14,19 @@
   "hello": {
     "message": "Ahoj Przygodo!",
     "description": "Inaczej"
+  },
+  "successful_login": {
+    "message": "Cześć, $username$! Zalogowałeś się do YanApp! I nawet od teraz możesz używać tego dzieła",
+    "description": "login message",
+    "placeholders": {
+      "username": {
+        "content": "$1",
+        "example": "Username"
+      }
+    }
+  },
+  "successful_logout": {
+    "message": "Wylogowano",
+    "description": "logout message"
   }
 }

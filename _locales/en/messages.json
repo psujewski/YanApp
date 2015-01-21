@@ -14,5 +14,19 @@
   "hello": {
     "message": "Hello World",
     "description": "Obvious"
+  },
+  "successful_login": {
+    "message": "Hello, $username$! Now you can usee awesome Yet Another Note App!",
+    "description": "login message",
+    "placeholders": {
+      "username": {
+        "content": "$1",
+        "example": "Username"
+      }
+    }
+  },
+  "successful_logout": {
+    "message": "Logout",
+    "description": "logout message"
   }
 }

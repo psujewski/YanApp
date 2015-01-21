@@ -1,0 +1,7 @@
+if (config === undefined) {
+    var config = {
+        appKey: "app key",
+        appSecret: "secret key",
+        receiver: "chrome_oauth_receiver.html"
+    };
+}
