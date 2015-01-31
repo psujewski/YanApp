@@ -7,7 +7,9 @@ var client = new Dropbox.Client({key: config.appKey}),
     reportAuthError,
     getAccountInfo,
     pollForChanges,
-    pullChanges;
+    pullChanges,
+    readFile,
+    writeFile;
 
 client.onError.addListener(function (error) {
     reportAuthError(error);
@@ -29,7 +31,7 @@ logout = function () {
 
 getAccountInfo = function () {
     client.getAccountInfo(function (error, accountInfo) {
-        alert(chrome.i18n.getMessage("successful_login", accountInfo.name));
+        alert(chrome.i18n.getMessage("successful_login", accountInfo.name))
     });
 };
 
@@ -43,9 +45,21 @@ pullChanges = function (cursor) {
     client.pullChanges(cursor, function (error, result) {
         console.log(result.cursor());
         _.each(result.changes, function (element) {
-            console.log(JSON.stringify(element));
+            console.log(JSON.stringify(element))
         })
     })
+};
+
+readFile = function (filePath) {
+    client.readFile(filePath, function (error, data) {
+        console.log(JSON.stringify(data))
+    });
+};
+
+writeFile = function (fileName, text) {
+    client.writeFile(fileName, text, function (error, stat) {
+        console.log(JSON.stringify(stat))
+    });
 };
 
 reportAuthError = function (error) {
