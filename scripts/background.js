@@ -1,29 +1,25 @@
 var client = new Dropbox.Client({key: config.appKey}),
+    authDriver = new Dropbox.AuthDriver.ChromeExtension({
+        receiverPath: config.receiver
+    }),
     authenticate,
-    reportAuthError,
     logout,
-    getAccountInfo;
+    reportAuthError,
+    getAccountInfo,
+    pollForChanges,
+    pullChanges;
 
 client.onError.addListener(function (error) {
     reportAuthError(error);
-    if (window.console) {
-        console.error(error);
-    }
 });
 
 authenticate = function () {
-    client.authDriver(
-        new Dropbox.AuthDriver.ChromeExtension({
-            receiverPath: config.receiver
-        }));
-
+    alert("authenticate");
+    client.authDriver(authDriver);
     client.authenticate(function (error, client) {
         getAccountInfo();
     });
-
 };
-
-authenticate();
 
 logout = function () {
     client.signOut(function (error) {
@@ -31,16 +27,33 @@ logout = function () {
     })
 };
 
-getAccountInfo = function(){
+getAccountInfo = function () {
     client.getAccountInfo(function (error, accountInfo) {
         alert(chrome.i18n.getMessage("successful_login", accountInfo.name));
     });
 };
 
+pollForChanges = function (cursor) {
+    client.pollForChanges(cursor, function (error, cursor) {
+        console.log(JSON.stringify(cursor))
+    })
+};
+
+pullChanges = function (cursor) {
+    client.pullChanges(cursor, function (error, result) {
+        console.log(result.cursor());
+        _.each(result.changes, function (element) {
+            console.log(JSON.stringify(element));
+        })
+    })
+};
+
 reportAuthError = function (error) {
     //TODO Do better error handling
+    console.log(error.status);
     switch (error.status) {
         case Dropbox.ApiError.INVALID_TOKEN:
+            alert("Invalid token reauthentication");
             authenticate();
             break;
         case Dropbox.ApiError.NOT_FOUND:
@@ -50,7 +63,7 @@ reportAuthError = function (error) {
             alert("Unfortunately, your Dropbox is full");
             break;
         case Dropbox.ApiError.RATE_LIMITED:
-            alert("Too many API requests. Try again later or contact with app developer.")
+            alert("Too many API requests. Try again later or contact with app developer.");
             break;
         case Dropbox.ApiError.NETWORK_ERROR:
             alert("Probably your network connection is down.");
