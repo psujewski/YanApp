@@ -3,5 +3,6 @@ if (config === undefined) {
         appKey: "app key",
         appSecret: "secret key",
         receiver: "chrome_oauth_receiver.html"
+        popup: "popup.html"
     };
 }
