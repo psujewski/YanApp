@@ -84,8 +84,9 @@ pullChanges = function (cursor) {
         if (error) {
             reportAuthError(error)
         }
-        _.each(result.changes, function (element) {
-
+        var list = _.filter(result.changes, function(element){ return !element.wasRemoved })
+        _.each(list, function (element) {
+            readFile(element.path)
         })
     })
 }
@@ -95,7 +96,9 @@ readFile = function (filePath) {
         if (error) {
             reportAuthError(error)
         }
-        console.log(JSON.stringify(data))
+        $("#output").append("<p>")
+        $("#output").append(data)
+        $("#output").append("<p>")
     })
 }
 

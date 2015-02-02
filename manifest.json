@@ -21,7 +21,7 @@
   "permissions":[
     "tabs",
     "storage",
-    "identity",
+    "unlimitedStorage",
     "contextMenus",
     "https://www.dropbox.com/*",
     "https://api.dropbox.com/*",

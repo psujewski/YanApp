@@ -12,4 +12,4 @@ wget "https://cdnjs.cloudflare.com/ajax/libs/dropbox.js/0.10.3/dropbox.min.js" -
 wget "https://cdnjs.cloudflare.com/ajax/libs/dropbox.js/0.10.3/dropbox.min.map" -O "${LIB_PATH}/dropbox.min.map"
 wget "https://cdnjs.cloudflare.com/ajax/libs/dropbox.js/0.10.3/dropbox.js" -O "${LIB_PATH}/dropbox.js"
 wget "http://underscorejs.org/underscore-min.js" -O "${LIB_PATH}/underscore.min.js"
-wget "http://underscorejs.org/underscore-min.map" -O "${LIB_PATH}/underscore.min.map"
+wget "http://underscorejs.org/underscore-min.map" -O "${LIB_PATH}/underscore-min.map"
